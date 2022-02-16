@@ -4,25 +4,20 @@ class UsersbestsController < ApplicationController
 
   before_action :set_usersbest, only: %i[show edit update destroy]
 
-  # GET /usersbests
   def index
     @q = Usersbest.ransack(params[:q])
     @usersbests = @q.result(distinct: true).includes(:users, :dishes,
                                                      :venue).page(params[:page]).per(10)
   end
 
-  # GET /usersbests/1
   def show; end
 
-  # GET /usersbests/new
   def new
     @usersbest = Usersbest.new
   end
 
-  # GET /usersbests/1/edit
   def edit; end
 
-  # POST /usersbests
   def create
     @usersbest = Usersbest.new(usersbest_params)
 
@@ -38,7 +33,6 @@ class UsersbestsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /usersbests/1
   def update
     if @usersbest.update(usersbest_params)
       redirect_to @usersbest, notice: "Usersbest was successfully updated."
@@ -47,7 +41,6 @@ class UsersbestsController < ApplicationController
     end
   end
 
-  # DELETE /usersbests/1
   def destroy
     @usersbest.destroy
     message = "Usersbest was successfully deleted."
@@ -68,12 +61,10 @@ class UsersbestsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_usersbest
     @usersbest = Usersbest.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def usersbest_params
     params.require(:usersbest).permit(:dishes_id, :venue_id, :users_id)
   end
