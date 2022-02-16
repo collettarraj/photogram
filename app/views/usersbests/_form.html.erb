@@ -16,7 +16,7 @@
 
     <%= f.label :dishes_id %>
     <!-- Input for dishes_id start -->
-    <%= f.number_field :dishes_id, class: dish_class, placeholder: "Enter dish" %>
+    <%= f.collection_select :dishes_id, Dish.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for dishes_id end -->
     <% if dish_was_invalid %>
       <% usersbest.errors.full_messages_for(:dish).each do |message| %>
