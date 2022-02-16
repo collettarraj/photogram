@@ -4,10 +4,10 @@ class Usersbest < ApplicationRecord
   belongs_to :venue
 
   belongs_to :dishes,
-             :class_name => "Dish"
+             class_name: "Dish"
 
   belongs_to :users,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -18,5 +18,4 @@ class Usersbest < ApplicationRecord
   def to_s
     dishes.to_s
   end
-
 end

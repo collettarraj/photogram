@@ -17,5 +17,4 @@ class UsersbestResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

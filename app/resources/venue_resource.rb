@@ -8,10 +8,9 @@ class VenueResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :usersbests
+  has_many :usersbests
 
   # Indirect associations
 
   many_to_many :dishes
-
 end
