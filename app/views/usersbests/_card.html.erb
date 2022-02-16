@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Usersbest #<%= usersbest.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Dishes</dt>
+      <!-- Display dishes_id start -->
+      <dd><%= usersbest.dishes_id %></dd>
+      <!-- Display dishes_id end -->
+
+      <dt>Venue</dt>
+      <!-- Display venue_id start -->
+      <dd><%= usersbest.venue_id %></dd>
+      <!-- Display venue_id end -->
+
+      <dt>Users</dt>
+      <!-- Display users_id start -->
+      <dd><%= usersbest.users_id %></dd>
+      <!-- Display users_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back usersbest, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link usersbest start -->
+      <div class="col">
+        <%= link_to edit_usersbest_url(usersbest), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link usersbest end -->
+
+      <!-- Delete link usersbest start -->
+      <div class="col">
+        <%= link_to usersbest, method: :delete, data: { confirm: "Do you really want to delete this usersbest?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link usersbest end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(usersbest.updated_at) %> ago
+  </div>
+</div>
