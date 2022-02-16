@@ -4,6 +4,8 @@ RSpec.describe Usersbest, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:dishes) }
+
     it { should belong_to(:users) }
 
     end
