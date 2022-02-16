@@ -29,16 +29,20 @@
 
       <!-- Edit link usersbest start -->
       <div class="col">
-        <%= link_to edit_usersbest_url(usersbest), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @usersbest.users %>
+          <%= link_to edit_usersbest_url(usersbest), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link usersbest end -->
 
       <!-- Delete link usersbest start -->
       <div class="col">
-        <%= link_to usersbest, method: :delete, data: { confirm: "Do you really want to delete this usersbest?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @usersbest.users %>
+          <%= link_to usersbest, method: :delete, data: { confirm: "Do you really want to delete this usersbest?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link usersbest end -->
