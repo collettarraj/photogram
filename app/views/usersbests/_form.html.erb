@@ -1,7 +1,6 @@
 <% was_validated = usersbest.errors.any? %>
 
 <%= form_with(model: usersbest, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for dishes_id start -->
   <div class="form-group">
     <% dish_class = "form-control" %>
     <% dish_was_invalid = usersbest.errors.include?(:dish) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :dishes_id %>
-    <!-- Input for dishes_id start -->
     <%= f.collection_select :dishes_id, Dish.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for dishes_id end -->
     <% if dish_was_invalid %>
       <% usersbest.errors.full_messages_for(:dish).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for dishes_id end -->
-  <!-- Label and input for venue_id start -->
   <div class="form-group">
     <% venue_class = "form-control" %>
     <% venue_was_invalid = usersbest.errors.include?(:venue) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :venue_id %>
-    <!-- Input for venue_id start -->
     <%= f.collection_select :venue_id, Venue.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for venue_id end -->
     <% if venue_was_invalid %>
       <% usersbest.errors.full_messages_for(:venue).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,11 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for venue_id end -->
-  <!-- Label and input for users_id start -->
-  <!-- Input for "users_id" start -->
   <%= f.hidden_field :users_id, value: current_user.id %>
-  <!-- Input for "users_id" end -->
-  <!-- Label and input for users_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

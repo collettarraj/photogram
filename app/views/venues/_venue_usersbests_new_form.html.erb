@@ -1,28 +1,14 @@
-<!-- Form usersbest start -->
 <%= form_with(model: @usersbest, local: true) do |f| %>
-<!-- Form usersbest end -->
 
-  <!-- Label and input for dishes_id start -->
   <div class="form-group">
     <%= f.label :dishes_id %>
 
-    <!-- Input for dishes_id start -->
     <%= f.collection_select :dishes_id, Dish.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for dishes_id end -->
   </div>
-  <!-- Label and input for dishes_id end -->
 
-  <!-- Label and input for venue_id start -->
-  <!-- Input for venue_id start -->
   <%= f.hidden_field :venue_id, value: @venue.id %>
-  <!-- Input for venue_id end -->
-  <!-- Label and input for venue_id end -->
 
-  <!-- Label and input for users_id start -->
-  <!-- Input for "users_id" start -->
   <%= f.hidden_field :users_id, value: current_user.id %>
-  <!-- Input for "users_id" end -->
-  <!-- Label and input for users_id end -->
 
   <%= f.submit "Create usersbest", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

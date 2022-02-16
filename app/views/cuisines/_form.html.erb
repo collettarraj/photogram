@@ -1,7 +1,6 @@
 <% was_validated = cuisine.errors.any? %>
 
 <%= form_with(model: cuisine, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for cuisine_name start -->
   <div class="form-group">
     <% cuisine_name_class = "form-control" %>
     <% cuisine_name_was_invalid = cuisine.errors.include?(:cuisine_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :cuisine_name %>
-    <!-- Input for cuisine_name start -->
     <%= f.text_field :cuisine_name, class: cuisine_name_class, placeholder: "Enter cuisine name" %>
-    <!-- Input for cuisine_name end -->
     <% if cuisine_name_was_invalid %>
       <% cuisine.errors.full_messages_for(:cuisine_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,6 +23,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for cuisine_name end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
