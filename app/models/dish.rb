@@ -9,6 +9,10 @@ class Dish < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :venues,
+             :through => :usersbests,
+             :source => :venue
+
   # Validations
 
   # Scopes
