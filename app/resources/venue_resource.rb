@@ -12,4 +12,6 @@ class VenueResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :dishes
+
 end
