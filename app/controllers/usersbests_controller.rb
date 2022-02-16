@@ -5,7 +5,8 @@ class UsersbestsController < ApplicationController
 
   # GET /usersbests
   def index
-    @usersbests = Usersbest.page(params[:page]).per(10)
+    @q = Usersbest.ransack(params[:q])
+    @usersbests = @q.result(:distinct => true).includes(:users, :dishes, :venue).page(params[:page]).per(10)
   end
 
   # GET /usersbests/1
