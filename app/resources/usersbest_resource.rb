@@ -8,6 +8,9 @@ class UsersbestResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :users,
+             resource: UserResource
+
   # Indirect associations
 
 end
