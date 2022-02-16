@@ -19,13 +19,9 @@
   <!-- Label and input for venue_id end -->
 
   <!-- Label and input for users_id start -->
-  <div class="form-group">
-    <%= f.label :users_id %>
-
-    <!-- Input for users_id start -->
-    <%= f.collection_select :users_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for users_id end -->
-  </div>
+  <!-- Input for "users_id" start -->
+  <%= f.hidden_field :users_id, value: current_user.id %>
+  <!-- Input for "users_id" end -->
   <!-- Label and input for users_id end -->
 
   <%= f.submit "Create usersbest", class: "btn btn-block btn-outline-secondary" %>

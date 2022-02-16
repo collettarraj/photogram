@@ -54,30 +54,9 @@
   </div>
   <!-- Label and input for venue_id end -->
   <!-- Label and input for users_id start -->
-  <div class="form-group">
-    <% user_class = "form-control" %>
-    <% user_was_invalid = usersbest.errors.include?(:user) %>
-
-    <% if was_validated %>
-      <% if user_was_invalid %>
-        <% user_class << " is-invalid" %>
-      <% else %>
-        <% user_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :users_id %>
-    <!-- Input for users_id start -->
-    <%= f.collection_select :users_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for users_id end -->
-    <% if user_was_invalid %>
-      <% usersbest.errors.full_messages_for(:user).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <!-- Input for "users_id" start -->
+  <%= f.hidden_field :users_id, value: current_user.id %>
+  <!-- Input for "users_id" end -->
   <!-- Label and input for users_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
