@@ -7,6 +7,9 @@ class DishResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :usersbests,
+             foreign_key: :dishes_id
+
   belongs_to :cuisine
 
   # Indirect associations
