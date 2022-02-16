@@ -24,7 +24,12 @@ class UsersbestsController < ApplicationController
     @usersbest = Usersbest.new(usersbest_params)
 
     if @usersbest.save
-      redirect_to @usersbest, notice: 'Usersbest was successfully created.'
+      message = 'Usersbest was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @usersbest, notice: message
+      end
     else
       render :new
     end
